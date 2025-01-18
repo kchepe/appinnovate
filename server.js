@@ -23,7 +23,7 @@ const db = mysql.createConnection({
     user: process.env.MYSQLUSER,  // Database username
     password: process.env.MYSQLPASSWORD,  // Database password
     database: process.env.MYSQLDATABASE,  // Database name
-    port: process.env.MYSQLPORT || 3306,  // Database port
+    port: 3306,  // Database port
 });
 
 
@@ -37,7 +37,6 @@ const db = mysql.createConnection({
 
 db.connect(err => {
     if (err) {
-        console.log(process.env.MYSQLPORT )
         throw err;
     };
     console.log('Connected to MySQL database');
