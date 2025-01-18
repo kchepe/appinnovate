@@ -19,12 +19,13 @@ const SECRET_KEY = 'your_secret_key';
 // Database connection
 //production
 const db = mysql.createConnection({
-    host: process.env.MYSQLHOST,
-    user: process.env.MYSQLUSER,
-    password: process.env.MYSQLPASSWORD,
-    database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT, // Railway provides a port, use it
+    host: process.env.MYSQLHOST,  // Use the correct host from Railway env variables
+    user: process.env.MYSQLUSER,  // Database username
+    password: process.env.MYSQLPASSWORD,  // Database password
+    database: process.env.MYSQLDATABASE,  // Database name
+    port: process.env.MYSQLPORT || 3306,  // Database port
 });
+
 
 // development
 // const db = mysql.createConnection({
