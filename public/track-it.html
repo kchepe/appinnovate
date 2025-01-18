@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <script src="https://kit.fontawesome.com/2e1c1ac6a5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AppInnovate Solutions</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h3>
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                    AppInnovate Solutions</a>
+            </h3>
+            <section class="hamburger-menu-container">
+                <ul class="user-menu-list" style="margin-right: 16px;">
+                    <li class="has-submenu user-menu">
+                        <section>
+                            <section class="nav-menu-item user-menu-link">
+                                <i class="fas fa-user"></i>
+                            </section>
+                            <ul class="submenu">
+                                <li><a href="#" id="signout">Sign Out</a></li>
+                            </ul>
+                        </section>
+                    </li>
+                </ul>
+                <section><i class="fas fa-bars hamburger-menu"></i></section>
+            </section>
+
+            <ul class="menu-list">
+                <li>
+                    <a href="index.html" class="nav-menu-item">
+                        Home
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <section>
+                        <label class="nav-menu-item">
+                            Services
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="custom-app-development.html">Custom App Development</a></li>
+                            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
+                            <li><a href="maintenace-and-support.html">App Maintenance and Support</a></li>
+                        </ul>
+                    </section>
+                </li>
+                <li class="has-submenu">
+                    <section>
+                        <label class="nav-menu-item">
+                            Portfolio
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="shoppivy.html">Shoppivy</a></li>
+                            <li><a href="track-it.html">Trackit</a></li>
+                        </ul>
+                    </section>
+                </li>
+                <li>
+                    <a href="about-us.html" class="nav-menu-item">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-menu-item" href="contact-us.html">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu-list">
+                <li>
+                    <a href="login.html" class="nav-menu-item">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="registration.html" class="contact-us-button">
+                        Register
+                    </a>
+                </li>
+                <li class="has-submenu user-menu">
+                    <section>
+                        <section class="nav-menu-item user-menu-link">
+                            <i class="fas fa-user"></i>
+                        </section>
+                        <ul class="submenu">
+                            <li><a href="#" id="signout">Sign Out</a></li>
+                        </ul>
+                    </section>
+                </li>
+            </ul>
+        </nav>
+
+        <aside class="mobile-navigation-drawer">
+            <section class="mobile-menu-container">
+                <ul class="mobile-menu-list">
+                    <li>
+                        <a href="index.html" class="mobile-menu-list-item mobile-selected">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <section class="menu-list-with-sub-menu-container">
+                            <label>
+                                Services
+                            </label>
+                            <i class="fas fa-caret-down text-header"></i>
+                        </section>
+                        <ul class="mobile-menu-list mobile-submenu">
+                            <li>
+                                <a href="custom-app-development.html" class="menu-list-sub-menu">
+                                    Custom App Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux-design.html" class="menu-list-sub-menu">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="maintenace-and-support.html" class="menu-list-sub-menu">
+                                    App Maintenance and Support
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <section class="menu-list-with-sub-menu-container">
+                            <label>
+                                Portfolio
+                            </label>
+                            <i class="fas fa-caret-down text-header"></i>
+                        </section>
+
+                        <ul class="mobile-menu-list mobile-submenu">
+                            <li>
+                                <a href="shoppivy.html" class="menu-list-sub-menu">
+                                    Shoppivy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="track-it.html" class="menu-list-sub-menu">
+                                    Trackit
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about-us.html" class="mobile-menu-list-item">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html" class="mobile-menu-list-item">
+                            Contact us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="mobile-menu-list-item">
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="registration.html" class="mobile-menu-list-item">
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </header>
+    <main class="portfolio-container">
+        <section class="image-viewer" id="image-viewer">
+            <i class="fas fa-times close"></i>
+            <img id="large-image" src="" alt=" Large View">
+        </section>
+        <section class="portfolio-container">
+            <h3 class="text-header" align="center" style="font-size: 32px; margin-bottom: 30px;">Project 2: TrackIt -
+                Health and
+                Fitness Made
+                Easy</h3>
+            <article class="article-container">
+                <img src="./assets/portfolio/image-1.jpg" alt="Shoppivy-ECommerce"
+                    class="portfolio-image image-rounded thumbnail-image">
+                <section class="portfolio-section-article">
+                    <p align="justify">
+                        <b class="text-header">TrackIt</b> is a fitness-tracking app that helps users achieve their
+                        health
+                        goals with real-time
+                        activity tracking, goal setting, and workout plans. It syncs with popular wearable devices,
+                        enabling
+                        users to monitor their fitness progress across platforms.
+                    </p>
+                    <h3 class="text-header">Key Features</h3>
+                    <ul class="article-list">
+                        <li>Real-time tracking of steps, workouts, and calories.</li>
+                        <li>Integration with Fitbit, Apple Watch, and Garmin.</li>
+                        <li>Goal setting and visual progress charts.</li>
+                        <li>Curated workout plans for all fitness levels.</li>
+                        <li>Daily health tips and motivational insights.</li>
+                    </ul>
+                    <h3 class="text-header">Technology Stack</h3>
+                    <ul class="article-list">
+                        <li>Android, iOS</li>
+                        <li>Swift, Kotlin</li>
+                        <li>Google Fit, Apple HealthKit</li>
+                    </ul>
+                    <p align="justify">
+                        TrackIt empowers users to take control of their fitness journey, keeping them motivated and on
+                        track.
+                    </p>
+                </section>
+            </article>
+        </section>
+        <section>
+            <h3 class="text-header">Why choose us?</h3>
+            <p align="justify">
+                AppInnovate Solutions takes pride in delivering tailored mobile app solutions that meet your unique
+                business
+                needs. Whether eCommerce, health and fitness, or any other industry, our experts ensure every project is
+                built with user-centric design, robust technology, and seamless functionality. Want to see what we can
+                create for your business? <a class="portfolio-contact-us" href="contact-us.html">Get in touch with us
+                    today!</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-section-container">
+            <section class="footer-get-in-touch-container">
+                <h3>Get in Touch</h3>
+                <section class="footer-information-container">
+                    <i class="fas fa-phone"></i>
+                    <p>61426650247</p>
+                </section>
+                <section class="footer-information-container ">
+                    <i class="fas fa-envelope"></i>
+                    <p>team@appinnovatesolutions.com </p>
+                </section>
+            </section>
+            <section class="footer-information-section">
+                <h3>
+                    <a href="index.html" class="logo">
+                        <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                        AppInnovate Solutions
+                    </a>
+                </h3>
+                <section>
+                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.
+                    </p>
+                </section>
+            </section>
+            <section style="gap: 7px;" class="footer-information-section">
+                <section style="display: flex; gap: 10px;">
+                    <a href="https://www.instagram.com/appinnovativesolutions/" target="_blank"
+                        style="text-decoration: none; color: white;">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/appinnovate-solutions-5aa48a341/" target="_blank"
+                        style="text-decoration: none; color: white;">
+                        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
+                    </a>
+                </section>
+                <a href=" privacy-policy.html" class="privacy-policy">Privacy Policy</a>
+            </section>
+
+        </section>
+    </footer>
+    <script src=" script.js"></script>
+</body>
+
+</html>

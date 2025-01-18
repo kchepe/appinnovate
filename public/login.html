@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <title>AppInnovate Solutions</title>
+</head>
+
+<body>
+    <section class="login-container">
+        <nav class="login-logo-container">
+            <h3>
+                <a href="index.html" class="logo login-logo">
+                    <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                    AppInnovate Solutions</a>
+            </h3>
+        </nav>
+        <section class="login-form-container">
+            <form id="login-form">
+                <section>
+                    <p class="form-title">Please Enter your Account details</p>
+                </section>
+                <section>
+                    <p class="input-label">Email Address:</p>
+                    <input type="email" id="email" class="text-field" placeholder="Enter Email Address" required />
+                </section>
+                <section>
+                    <p class="input-label">Password:</p>
+                    <input type="password" id="password" class="text-field" placeholder="Enter Password" required />
+                </section>
+                <button type="submit" class="button submit-button"
+                    style="background-color: #18947b !important;">Login</button>
+                <section>
+                    <p align="center" class="form-text">Don't have an Account? <a href="registration.html"
+                            class="login-link">Sign up for free</a></p>
+                </section>
+            </form>
+        </section>
+        <section class="login-image-container">
+            <img src="./assets/login.svg" alt="AppInnovate Solutions logo" width="450">
+            <section style="text-align: center; color: white;">
+                <p class="login-image-text">
+                    Empowering Your Vision, One App at a Time.
+                </p>
+                <p align="center">
+                    <i>"From concept to deployment, we craft intuitive, high-performance mobile applications that
+                        enhance user experience and accelerate business growth."</i>
+                </p>
+            </section>
+        </section>
+    </section>
+
+    <script>
+        // Handle form submission
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Send login request to backend
+            fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = 'index.html';
+                    } else {
+                        // Show alert on failed login
+                        alert('Invalid email or password');
+                    }
+                })
+                .catch(error => {
+                    alert('An error occurred while logging in. Please try again later.');
+                });
+        });
+    </script>
+</body>
+
+</html>

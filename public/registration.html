@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <title>AppInnovate Solutions</title>
+</head>
+
+<body>
+
+    <section class="login-container">
+        <nav class="login-logo-container">
+            <h3>
+                <a href="index.html" class="logo login-logo">
+                    <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                    AppInnovate Solutions</a>
+            </h3>
+        </nav>
+        <section class="login-form-container">
+            <form id="registrationForm">
+                <section>
+                    <p class="form-title">Create an Account</p>
+                </section>
+                <section>
+                    <p class="input-label">Firstname:</p>
+                    <input type="text" class="text-field" name="firstname" placeholder="Enter Firstname" required />
+                </section>
+                <section>
+                    <p class="input-label">Lastname:</p>
+                    <input type="text" class="text-field" name="lastname" placeholder="Enter Lastname" required />
+                </section>
+                <section>
+                    <p class="input-label">Email Address:</p>
+                    <input type="email" class="text-field" name="email" placeholder="Enter Email Address" required />
+                </section>
+                <section>
+                    <p class="input-label">Password:</p>
+                    <input type="password" name="password" class="text-field" placeholder="Enter Password" required />
+                </section>
+                <section>
+                    <p class="input-label">Confirm Password:</p>
+                    <input type="password" name="confirmPassword" class="text-field" placeholder="Confirm Password"
+                        required />
+                </section>
+                <button type="submit" class="button submit-button" style="background-color: #18947b !important;">Create
+                    Account</button>
+                <section>
+                    <p align="center" class="form-text">Already have an Account? <a href="login.html"
+                            class="login-link">Login
+                            here</a></p>
+                </section>
+            </form>
+        </section>
+        <section class="login-image-container">
+            <img src="./assets/register.svg" alt="AppInnovate Solutions logo" width="450">
+            <section style="text-align: center; color: white;">
+                <p class="login-image-text">
+                    Crafting the Future Together – Sign Up to Begin!
+                </p>
+                <p align="center">
+                    <i>"Your journey to building powerful, high-performance applications starts here. Register today and
+                        gain access to tools and expertise that elevate user experiences and drive success."</i>
+                </p>
+            </section>
+        </section>
+    </section>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const password = document.querySelector('[name="password"]').value;
+            const confirmPassword = document.querySelector('[name="confirmPassword"]').value;
+
+            // Validate password and confirm password match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const message = await response.text();
+
+                if (response.ok) {
+                    alert('Registration successful!');
+                    window.location.href = '/login.html';
+                } else {
+                    alert('Error: ' + message);
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>

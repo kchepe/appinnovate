@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
+    <script src="https://kit.fontawesome.com/2e1c1ac6a5.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>AppInnovate Solutions</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h3>
+                <a href="index.html" class="logo">
+                    <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                    AppInnovate Solutions</a>
+            </h3>
+            <section class="hamburger-menu-container">
+                <ul class="user-menu-list" style="margin-right: 16px;">
+                    <li class="has-submenu user-menu">
+                        <section>
+                            <section class="nav-menu-item user-menu-link">
+                                <i class="fas fa-user"></i>
+                            </section>
+                            <ul class="submenu">
+                                <li><a href="#" id="signout">Sign Out</a></li>
+                            </ul>
+                        </section>
+                    </li>
+                </ul>
+                <section><i class="fas fa-bars hamburger-menu"></i></section>
+            </section>
+
+            <ul class="menu-list">
+                <li>
+                    <a href="index.html" class="nav-menu-item">
+                        Home
+                    </a>
+                </li>
+                <li class="has-submenu">
+                    <section>
+                        <label class="nav-menu-item">
+                            Services
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="custom-app-development.html">Custom App Development</a></li>
+                            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
+                            <li><a href="maintenace-and-support.html">App Maintenance and Support</a></li>
+                        </ul>
+                    </section>
+                </li>
+                <li class="has-submenu">
+                    <section>
+                        <label class="nav-menu-item">
+                            Portfolio
+                        </label>
+                        <ul class="submenu">
+                            <li><a href="shoppivy.html">Shoppivy</a></li>
+                            <li><a href="track-it.html">Trackit</a></li>
+                        </ul>
+                    </section>
+                </li>
+                <li>
+                    <a href="about-us.html" class="nav-menu-item">
+                        About Us
+                    </a>
+                </li>
+                <li>
+                    <a class="nav-menu-item" href="contact-us.html">
+                        Contact Us
+                    </a>
+                </li>
+            </ul>
+            <ul class="menu-list">
+                <li>
+                    <a href="login.html" class="nav-menu-item">
+                        Login
+                    </a>
+                </li>
+                <li>
+                    <a href="registration.html" class="contact-us-button">
+                        Register
+                    </a>
+                </li>
+                <li class="has-submenu user-menu">
+                    <section>
+                        <section class="nav-menu-item user-menu-link">
+                            <i class="fas fa-user"></i>
+                        </section>
+                        <ul class="submenu">
+                            <li><a href="#" id="signout">Sign Out</a></li>
+                        </ul>
+                    </section>
+                </li>
+            </ul>
+        </nav>
+
+        <aside class="mobile-navigation-drawer">
+            <section class="mobile-menu-container">
+                <ul class="mobile-menu-list">
+                    <li>
+                        <a href="index.html" class="mobile-menu-list-item mobile-selected">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <section class="menu-list-with-sub-menu-container">
+                            <label>
+                                Services
+                            </label>
+                            <i class="fas fa-caret-down text-header"></i>
+                        </section>
+                        <ul class="mobile-menu-list mobile-submenu">
+                            <li>
+                                <a href="custom-app-development.html" class="menu-list-sub-menu">
+                                    Custom App Development
+                                </a>
+                            </li>
+                            <li>
+                                <a href="ui-ux-design.html" class="menu-list-sub-menu">
+                                    UI/UX Design
+                                </a>
+                            </li>
+                            <li>
+                                <a href="maintenace-and-support.html" class="menu-list-sub-menu">
+                                    App Maintenance and Support
+                                </a>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <section class="menu-list-with-sub-menu-container">
+                            <label>
+                                Portfolio
+                            </label>
+                            <i class="fas fa-caret-down text-header"></i>
+                        </section>
+
+                        <ul class="mobile-menu-list mobile-submenu">
+                            <li>
+                                <a href="shoppivy.html" class="menu-list-sub-menu">
+                                    Shoppivy
+                                </a>
+                            </li>
+                            <li>
+                                <a href="track-it.html" class="menu-list-sub-menu">
+                                    Trackit
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="about-us.html" class="mobile-menu-list-item">
+                            About Us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact-us.html" class="mobile-menu-list-item">
+                            Contact us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html" class="mobile-menu-list-item">
+                            Login
+                        </a>
+                    </li>
+                    <li>
+                        <a href="registration.html" class="mobile-menu-list-item">
+                            Register
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </aside>
+    </header>
+    <main>
+        <section class="about-us-section-container">
+            <section>
+                <article class="home-article-container">
+                    <section class="hero-container">
+                        <div class="hero-overlay">&nbsp;</div>
+                        <section class="hero-text-container">
+                            <article class="hero-article">
+                                <h3 class="hero-text" align="center">We Build Innovation</h3>
+                                <p class="hero-sub-text">At <b>AppInnovate Solutions</b>, we drive innovation by
+                                    combining
+                                    cutting-edge technology, a
+                                    collaborative team culture, and a passion for excellence. With expertise in mobile
+                                    app
+                                    development, UI/UX design, and advanced technologies like AI, IoT, and blockchain,
+                                    we
+                                    deliver solutions that empower businesses globally.</p>
+                                <section>
+                                    <a class="contact-us-button" href="contact-us.html">
+                                        Let's Get Started
+                                    </a>
+                                </section>
+                            </article>
+                        </section>
+                        <img src="./assets/about-us/image-2.jpg" alt="hero" class="home-page-hero image-rounded" />
+                    </section>
+                </article>
+            </section>
+            <section class="about-us-article-container mobile-about-us-what-make-us-different-container">
+                <h3 class="text-header">What makes us different</h3>
+                <ul class="article-list">
+                    <li>
+                        <p>
+                            We combine our knowledge of technology and business to create solutions that meet your goals
+                            and
+                            deliver real results.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We collaborate closely with you, using the latest tools and methods to make sure your ideas
+                            are
+                            at
+                            the center of everything we do.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            We take the time to understand your business and challenges, providing solutions that are
+                            designed specifically for you.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            Our goal is to create solutions that make a real difference, helping businesses grow and
+                            succeed
+                            in today’s fast-changing world.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+            <section class="about-us-what-make-us-different-article">
+                <article>
+                    <span class="about-us">About us</span>
+                    <h1 class="what-makes-us-different">Whant makes <br />us <span class="different">different.</span>
+                    </h1>
+                </article>
+                <table style="border-collapse: collapse;">
+                    <tbody>
+                        <tr>
+                            <td style="border-bottom: 1px solid #ccd1cf; border-right:1px solid #ccd1cf">
+                                <p style="padding: 20px 20px 20px 0px">
+                                    We combine our knowledge of technology and business to create solutions that meet
+                                    your goals and
+                                    deliver real results.
+                                </p>
+                            </td>
+                            <td style="border-bottom: 1px solid #ccd1cf;">
+                                <p style="padding: 20px 0px 20px 20px;">
+                                    We collaborate closely with you, using the latest tools and methods to make sure
+                                    your ideas are
+                                    at
+                                    the center of everything we do.
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="border-right:1px solid #ccd1cf; border-top: 1px solid #ccd1cf">
+                                <p style="padding: 20px 20px 20px 0px">
+                                    We take the time to understand your business and challenges, providing solutions
+                                    that are
+                                    designed specifically for you.
+                                </p>
+                            </td>
+                            <td>
+                                <p style="padding: 20px 0px 20px 20px">
+                                    Our goal is to create solutions that make a real difference, helping businesses grow
+                                    and succeed
+                                    in today’s fast-changing world.
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <article class="about-us-team-article-container">
+                    <img src="./assets/about-us/image-1.jpg" alt="our team" class="our-team-image">
+                    <section class="about-us-article-container our-team-article">
+                        <h3 class="text-header mobile-about-us-team-header" align="center">Our Team</h3>
+                        <article>
+                            <span class="about-us">About us</span>
+                            <h2 class="our-team-text">Our <span class="team-color">Team.</span>
+                            </h2>
+                        </article>
+                        <p align="justify">
+                            At AppInnovate Solutions, we are a team of dedicated and highly skilled professionals,
+                            including Technology Consultants, Software Developers, UI/UX Designers, Project Managers,
+                            Quality Assurance Analysts, and Software Architects. Our collective expertise ensures that
+                            we deliver innovative, reliable, and scalable solutions to businesses across industries.
+                        </p>
+                        <p align="justify">
+                            We specialize in custom app development, UI/UX design, and app maintenance and support,
+                            leveraging advanced technologies such as artificial intelligence, IoT, and blockchain. Top
+                            companies trust AppInnovate Solutions to bring their most critical mobile app development
+                            projects to life.
+                        </p>
+                    </section>
+                </article>
+            </section>
+            <section>
+                <article class="about-us-article-container">
+                    <h3 class="text-header mission" align="center">
+                        Mission
+                    </h3>
+                    <p align="center">
+                        Our mission is to empower businesses with user-friendly digital products, cutting-edge designs,
+                        and scalable solutions. By focusing on collaboration and innovation, we help ambitious
+                        businesses achieve their goals and stay ahead in the digital landscape. Whether creating a
+                        tailored mobile app or maintaining peak performance, AppInnovate Solutions is your trusted
+                        partner in navigating today’s technology-driven world.
+                    </p>
+                </article>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-section-container">
+            <section class="footer-get-in-touch-container">
+                <h3>Get in Touch</h3>
+                <section class="footer-information-container">
+                    <i class="fas fa-phone"></i>
+                    <p>61426650247</p>
+                </section>
+                <section class="footer-information-container ">
+                    <i class="fas fa-envelope"></i>
+                    <p>team@appinnovatesolutions.com </p>
+                </section>
+            </section>
+            <section class="footer-information-section">
+                <h3>
+                    <a href="index.html" class="logo">
+                        <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
+                        AppInnovate Solutions
+                    </a>
+                </h3>
+                <section>
+                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.
+                    </p>
+                </section>
+            </section>
+            <section style="gap: 7px;" class="footer-information-section">
+                <section style="display: flex; gap: 10px;">
+                    <a href="https://www.instagram.com/appinnovativesolutions/" target="_blank"
+                        style="text-decoration: none; color: white;">
+                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/appinnovate-solutions-5aa48a341/" target="_blank"
+                        style="text-decoration: none; color: white;">
+                        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
+                    </a>
+                </section>
+                <a href=" privacy-policy.html" class="privacy-policy">Privacy Policy</a>
+            </section>
+
+        </section>
+    </footer>
+    <script src=" script.js"></script>
+</body>
+
+</html>

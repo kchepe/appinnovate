@@ -1,0 +1,306 @@
+@media (min-width: 1024px) {
+    .login-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-image-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+        background-color: #18947b;
+        height: 100vh;
+        padding: 0px 100px;
+        flex-direction: column;
+        gap: 32px;
+    }
+
+    .login-form-container{
+        flex: 1;
+        padding: 0px 150px
+    }
+
+    .login-image-text {
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+
+    .article-container {
+       flex-direction: row;
+       gap: 5rem
+    }
+    .portfolio-image{
+        width: 500px;
+    }
+
+    .home-page-hero, .hero-overlay {
+        height: 500px;
+    }
+
+    .hero-text {
+        font-size: 3rem;
+    }
+
+    .card-container {
+        flex-direction: row;
+    }
+
+    .home-services-img {
+        width: 100%;
+        height: 300px;
+    }
+
+    .services-image {
+        height:500px;
+    }
+
+    .contact-us-main-container {
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .contact-us-form {
+        flex: 1
+    }
+
+    .contact-us-information-container {
+        flex: 1
+    }
+
+    .hamburger-menu-container {
+        display: none;
+    }
+
+    .nav-menu-item {
+        text-decoration: none;
+        color: white;
+        cursor: pointer;
+    }
+
+    .nav-menu-item:hover {
+        color: #b0d3cc;
+    }
+
+    .menu-list {
+        display: flex;
+        list-style-type: none;
+        gap: 2rem;
+        color: white;
+        align-items: center;
+    }
+    
+
+    .contact-us-button {
+        background-color: #5ca194;
+        cursor: pointer;
+    }
+    .contact-us-button:hover {
+        background-color: #6cb1a4;
+    }
+
+    .has-submenu {
+        position: relative;
+    }
+    
+    .submenu {
+        list-style: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        margin: 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: none;
+        min-width: 150px;
+
+    }
+    
+    .submenu li a {
+        text-decoration: none;
+        color: #333;
+        display: block;
+        padding: 0.5rem;
+    }
+    
+    .submenu li a:hover {
+        background-color: #6cb1a4;
+        color: white;
+      
+    }
+    
+    .has-submenu:hover .submenu {
+        display: block;
+    }
+
+    main {
+        flex: 1;
+        margin-top: 90px;
+        padding: 3rem 2rem;
+    }
+
+    .footer-section-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    .about-us-team-article-container {
+        flex-direction: row;
+        background-color: #397367;
+        gap: 0;
+        color: white;
+    }
+
+    .mobile-about-us-team-header {
+        display: none;
+    }
+
+    .our-team-text, .what-makes-us-different {
+        display: block;
+        font-size: 36px;
+        font-weight: 900;
+    }
+
+    .team-color {
+     color: #7fd4c5;
+    }
+
+    .different {
+        color: #397367 
+    }
+
+
+    .our-team-image {
+        flex:1; 
+        object-fit: cover;
+    }
+
+    .our-team-article {
+        flex:1; 
+        padding: 3rem
+    }
+
+    .about-us-what-make-us-different-container {
+        display: flex; 
+    }
+
+    .about-us-what-make-us-different-article {
+        display: block;
+    }
+
+    .mobile-about-us-what-make-us-different-container {
+        display: none;
+    }
+
+    .about-us {
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    .mission {
+        font-size: 32px;
+    }
+
+    .home-page-hero {
+        height: 500px;
+    }
+
+    .hero-overlay {
+        height: 500px;
+    }
+
+    .hero-sub-text {
+        text-align: left;
+    }
+
+    .hero-text-container {
+        width: 75%
+    }
+    
+    .about-us-section-container {
+        gap: 3rem
+    }
+
+    .login-form-container{
+        flex: 1;
+        padding: 0px 100px;
+
+    }
+}
+
+@media (min-width: 1536px) {
+    header, .footer-section-container {
+        padding-left: 10rem;
+        padding-right: 10rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        
+    }
+
+    main{
+        padding-left: 12rem;
+        padding-right: 12rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+    }
+ 
+}
+
+@media (min-width: 1920px) {
+    header, .footer-section-container {
+        padding-left: 24rem;
+        padding-right: 24rem;
+    }
+
+    main{
+        padding-left: 26rem;
+        padding-right: 26rem;
+    }
+
+    .login-form-container{
+        flex: 1;
+        padding: 0px 250px
+    }
+}
+
+@media (min-width: 2048px) {
+    header, .footer-section-container {
+        padding-left: 32rem;
+        padding-right: 32rem;
+
+    }
+
+    main{
+        padding-left: 34rem;
+        padding-right: 34rem;
+    }
+
+        .login-form-container{
+        flex: 1;
+        padding: 0px 300px
+    }
+}
+
+@media (min-width: 3200px) {
+    header, .footer-section-container {
+        padding-left: 64rem;
+        padding-right: 64rem;
+    }
+
+    main{
+        padding-left: 66rem;
+        padding-right: 66rem;
+    }
+
+    .home-section-container {
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+}
