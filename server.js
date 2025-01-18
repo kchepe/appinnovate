@@ -17,12 +17,21 @@ app.use(cookieParser()); // Middleware for handling cookies
 const SECRET_KEY = 'your_secret_key';
 
 // Database connection
+//production
 const db = mysql.createConnection({
-    host: 'localhost',
+    host: 'mysql.railway.internal',
     user: 'root',
-    password: 'admin', // Change according to your MySQL setup
-    database: 'app'
+    password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM', // Change according to your MySQL setup
+    database: 'railway'
 });
+
+// development
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'admin', // Change according to your MySQL setup
+//     database: 'app'
+// });
 
 db.connect(err => {
     if (err) throw err;
