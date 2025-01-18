@@ -19,13 +19,12 @@ const SECRET_KEY = 'your_secret_key';
 // Database connection
 //production
 const db = mysql.createConnection({
-    host: "mysql.railway.internal",  // Use the correct host from Railway env variables
-    user: "root",  // Database username
-    password: "qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM",  // Database password
-    database: "railway",  // Database name
-    port: 3306,  // Database port
+    host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
+    user: 'root',
+    password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
+    database: 'railway',
+    port: 17679 // Use the correct port from the connection string
 });
-
 
 // development
 // const db = mysql.createConnection({
