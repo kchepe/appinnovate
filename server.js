@@ -19,10 +19,11 @@ const SECRET_KEY = 'your_secret_key';
 // Database connection
 //production
 const db = mysql.createConnection({
-    host: 'mysql.railway.internal',
-    user: 'root',
-    password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM', // Change according to your MySQL setup
-    database: 'railway'
+    host: process.env.MYSQLHOST,
+    user: process.env.MYSQLUSER,
+    password: process.env.MYSQLPASSWORD,
+    database: process.env.MYSQLDATABASE,
+    port: process.env.MYSQLPORT, // Railway provides a port, use it
 });
 
 // development
@@ -133,5 +134,6 @@ app.post('/login', (req, res) => {
     });
 });
 
-// Start server
-app.listen(3000, () => console.log('Server running on http://localhost:3000'));
+// Start server development
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
