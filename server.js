@@ -72,6 +72,7 @@ app.post('/register', (req, res) => {
     });
 });
 
+//current user endpoint
 app.get('/me', (req, res) => {
     const token = req.cookies.authToken; // Get token from cookies
 
@@ -86,7 +87,7 @@ app.get('/me', (req, res) => {
         res.json({ userId: decoded.userId, email: decoded.email, firstname: decoded.firstname, lastname: decoded.lastname });
     });
 });
-
+// Logout endpoint
 app.post('/logout', (req, res) => {
     res.clearCookie('authToken'); // Remove the token
     res.send('Logged out successfully');

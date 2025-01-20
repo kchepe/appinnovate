@@ -12,53 +12,56 @@
 
 <body>
 
-    <section class="login-container">
-        <nav class="login-logo-container">
+    <section class="login-container" role="main">
+        <nav class="login-logo-container" role="navigation">
             <h3>
                 <a href="index.html" class="logo login-logo">
                     <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                     AppInnovate Solutions</a>
             </h3>
         </nav>
-        <section class="login-form-container">
-            <form id="registrationForm">
+        <section class="login-form-container" role="region" aria-labelledby="form-title">
+            <form id="registrationForm" role="form">
                 <section>
-                    <p class="form-title">Create an Account</p>
+                    <p id="form-title" class="form-title">Create an Account</p>
                 </section>
                 <section>
-                    <p class="input-label">Firstname:</p>
-                    <input type="text" class="text-field" name="firstname" placeholder="Enter Firstname" required />
-                </section>
-                <section>
-                    <p class="input-label">Lastname:</p>
-                    <input type="text" class="text-field" name="lastname" placeholder="Enter Lastname" required />
-                </section>
-                <section>
-                    <p class="input-label">Email Address:</p>
-                    <input type="email" class="text-field" name="email" placeholder="Enter Email Address" required />
-                </section>
-                <section>
-                    <p class="input-label">Password:</p>
-                    <input type="password" name="password" class="text-field" placeholder="Enter Password" required />
-                </section>
-                <section>
-                    <p class="input-label">Confirm Password:</p>
-                    <input type="password" name="confirmPassword" class="text-field" placeholder="Confirm Password"
+                    <label class="input-label" for="firstname">Firstname:</label>
+                    <input type="text" class="text-field" id="firstname" name="firstname" placeholder="Enter Firstname"
                         required />
                 </section>
-                <button type="submit" class="button submit-button" style="background-color: #18947b !important;">Create
-                    Account</button>
+                <section>
+                    <label class="input-label" for="lastname">Lastname:</label>
+                    <input type="text" class="text-field" id="lastname" name="lastname" placeholder="Enter Lastname"
+                        required />
+                </section>
+                <section>
+                    <label class="input-label" for="email">Email Address:</label>
+                    <input type="email" class="text-field" id="email" name="email" placeholder="Enter Email Address"
+                        required />
+                </section>
+                <section>
+                    <label class="input-label" for="password">Password:</label>
+                    <input type="password" id="password" name="password" class="text-field" placeholder="Enter Password"
+                        required />
+                </section>
+                <section>
+                    <label class="input-label" for="confirmPassword">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="text-field"
+                        placeholder="Confirm Password" required />
+                </section>
+                <button type="submit" class="button submit-button" style="background-color: #18947b !important;"
+                    aria-label="Create Account">Create Account</button>
                 <section>
                     <p align="center" class="form-text">Already have an Account? <a href="login.html"
-                            class="login-link">Login
-                            here</a></p>
+                            class="login-link">Login here</a></p>
                 </section>
             </form>
         </section>
-        <section class="login-image-container">
-            <img src="./assets/register.svg" alt="AppInnovate Solutions logo" width="450">
+        <section class="login-image-container" role="img" aria-labelledby="image-text">
+            <img src="./assets/register.svg" alt="Illustration of user registration" width="450">
             <section style="text-align: center; color: white;">
-                <p class="login-image-text">
+                <p id="image-text" class="login-image-text">
                     Crafting the Future Together – Sign Up to Begin!
                 </p>
                 <p align="center">
@@ -70,6 +73,7 @@
     </section>
 
     <script>
+        // Handle form submission
         document.getElementById('registrationForm').addEventListener('submit', async function (event) {
             event.preventDefault();
 

@@ -13,81 +13,83 @@
 </head>
 
 <body>
-    <header>
-        <nav>
+    <!-- start of header -->
+    <header role="banner">
+        <nav role="navigation">
             <h3>
                 <a href="index.html" class="logo">
                     <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                     AppInnovate Solutions</a>
             </h3>
-            <section class="hamburger-menu-container">
-                <ul class="user-menu-list" style="margin-right: 16px;">
-                    <li class="has-submenu user-menu">
+            <section class="hamburger-menu-container" role="navigation">
+                <ul class="user-menu-list" style="margin-right: 16px;" role="menubar">
+                    <li class="has-submenu user-menu" role="menuitem">
                         <section>
                             <section class="nav-menu-item user-menu-link">
                                 <i class="fas fa-user"></i>
                             </section>
-                            <ul class="submenu">
-                                <li><a href="#" id="signout">Sign Out</a></li>
+                            <ul class="submenu" role="menu">
+                                <li role="menuitem"><a href="#" id="signout">Sign Out</a></li>
                             </ul>
                         </section>
                     </li>
                 </ul>
-                <section><i class="fas fa-bars hamburger-menu"></i></section>
+                <section role="button" aria-label="Open menu"><i class="fas fa-bars hamburger-menu"></i></section>
             </section>
 
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menubar">
+                <li role="menuitem">
                     <a href="index.html" class="nav-menu-item">
                         Home
                     </a>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Services
                         </label>
                         <ul class="submenu">
-                            <li><a href="custom-app-development.html">Custom App Development</a></li>
-                            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
-                            <li><a href="maintenace-and-support.html">App Maintenance and Support</a></li>
+                            <li role="menuitem"><a href="custom-app-development.html">Custom App Development</a></li>
+                            <li role="menuitem"><a href="ui-ux-design.html">UI/UX Design</a></li>
+                            <li role="menuitem"><a href="maintenace-and-support.html">App Maintenance and Support</a>
+                            </li>
                         </ul>
                     </section>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Portfolio
                         </label>
-                        <ul class="submenu">
-                            <li><a href="shoppivy.html">Shoppivy</a></li>
-                            <li><a href="track-it.html">Trackit</a></li>
+                        <ul class="submenu" role="menu">
+                            <li role="menuitem"><a href="shoppivy.html">Shoppivy</a></li>
+                            <li role="menuitem"><a href="track-it.html">Trackit</a></li>
                         </ul>
                     </section>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="about-us.html" class="nav-menu-item">
                         About Us
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a class="nav-menu-item" href="contact-us.html">
                         Contact Us
                     </a>
                 </li>
             </ul>
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menu">
+                <li role="menuitem">
                     <a href="login.html" class="nav-menu-item">
                         Login
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="registration.html" class="contact-us-button">
                         Register
                     </a>
                 </li>
-                <li class="has-submenu user-menu">
+                <li class="has-submenu user-menu" role="menuitem">
                     <section>
                         <section class="nav-menu-item user-menu-link">
                             <i class="fas fa-user"></i>
@@ -100,78 +102,91 @@
             </ul>
         </nav>
 
-        <aside class="mobile-navigation-drawer">
+        <aside class="mobile-navigation-drawer" role="complementary" aria-labelledby="mobile-menu-label">
+            <h2 id="mobile-menu-label" class="sr-only">Mobile Navigation Menu</h2>
+
             <section class="mobile-menu-container">
-                <ul class="mobile-menu-list">
-                    <li>
-                        <a href="index.html" class="mobile-menu-list-item mobile-selected">
+                <ul class="mobile-menu-list" role="menu">
+                    <li role="none">
+                        <a href="index.html" class="mobile-menu-list-item mobile-selected" role="menuitem">
                             Home
                         </a>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="services-label">
+                            <label id="services-label">
                                 Services
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="custom-app-development.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="services-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="custom-app-development.html" class="menu-list-sub-menu" role="menuitem">
                                     Custom App Development
                                 </a>
                             </li>
-                            <li>
-                                <a href="ui-ux-design.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="ui-ux-design.html" class="menu-list-sub-menu" role="menuitem">
                                     UI/UX Design
                                 </a>
                             </li>
-                            <li>
-                                <a href="maintenace-and-support.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="maintenace-and-support.html" class="menu-list-sub-menu" role="menuitem">
                                     App Maintenance and Support
                                 </a>
-
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="portfolio-label">
+                            <label id="portfolio-label">
                                 Portfolio
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="shoppivy.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="portfolio-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="shoppivy.html" class="menu-list-sub-menu" role="menuitem">
                                     Shoppivy
                                 </a>
                             </li>
-                            <li>
-                                <a href="track-it.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="track-it.html" class="menu-list-sub-menu" role="menuitem">
                                     Trackit
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="about-us.html" class="mobile-menu-list-item">
+
+                    <li role="none">
+                        <a href="about-us.html" class="mobile-menu-list-item" role="menuitem">
                             About Us
                         </a>
                     </li>
-                    <li>
-                        <a href="contact-us.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="contact-us.html" class="mobile-menu-list-item" role="menuitem">
                             Contact us
                         </a>
                     </li>
-                    <li>
-                        <a href="login.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="login.html" class="mobile-menu-list-item" role="menuitem">
                             Login
                         </a>
                     </li>
-                    <li>
-                        <a href="registration.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="registration.html" class="mobile-menu-list-item" role="menuitem">
                             Register
                         </a>
                     </li>
@@ -179,67 +194,66 @@
             </section>
         </aside>
     </header>
-    <main class="home-container">
-        <article class="home-article-container">
-            <section class="hero-container">
+
+    <!-- end of header -->
+    <!-- start of main content -->
+
+    <main class="home-container" role="main">
+        <article class="home-article-container" role="article">
+            <section class="hero-container" role="region" aria-labelledby="hero-heading">
+                <h2 id="hero-heading" class="sr-only">Hero Section</h2>
                 <div class="hero-overlay">&nbsp;</div>
                 <section class="hero-text-container">
                     <article class="hero-article">
                         <h3 class="hero-text" align="center">Empowering Your Ideas Through Mobile Solutions</h3>
                         <p class="hero-sub-text">At <b>AppInnovate Solutions</b>, we drive innovation by
-                            combining
-                            cutting-edge technology, a
-                            collaborative team culture, and a passion for excellence. With expertise in mobile
-                            app
-                            development, UI/UX design, and advanced technologies like AI, IoT, and blockchain,
-                            we
-                            deliver solutions that empower businesses globally.</p>
+                            combining cutting-edge technology, a collaborative team culture, and a passion for
+                            excellence. With expertise in mobile app development, UI/UX design, and advanced
+                            technologies like AI, IoT, and blockchain, we deliver solutions that empower businesses
+                            globally.</p>
                     </article>
                 </section>
-                <img src="./assets/homepage/image-1.jpg" alt="hero" class="home-page-hero image-rounded" />
+                <img src="./assets/homepage/image-1.jpg" alt="Hero Image" class="home-page-hero image-rounded" />
             </section>
         </article>
-        <section class="services-main-section-container" id="section-services">
-            <h2 class="text-header" align="center">Services</h2>
-            <h3 class="text-header services-text-header" align="center">Transforming ideas into seamless mobile
-                solutions</h3>
+        <section class="services-main-section-container" id="section-services"
+            aria-labelledby="services-section-heading">
+            <h2 id="services-section-heading" class="sr-only">Services Section</h2>
+            <h3 class="text-header" align="center">Transforming ideas into seamless mobile solutions</h3>
             <section class="card-container">
                 <article class="services-article">
-                    <a href="custom-app-development.html">
-                        <img src="./assets/services/image-1.jpg" alt="custom-app-development"
+                    <a href="custom-app-development.html" aria-label="Learn more about Custom App Development">
+                        <img src="./assets/services/image-1.jpg" alt="Custom App Development"
                             class="image-rounded home-services-img">
                     </a>
                     <h3 class="text-header">Custom App Development</h3>
                 </article>
                 <article class="services-article">
-                    <a href="ui-ux-design.html">
-                        <img src="./assets/services/image-3.jpg" alt="UI-UX-image"
+                    <a href="ui-ux-design.html" aria-label="Learn more about UI/UX Design">
+                        <img src="./assets/services/image-3.jpg" alt="UI/UX Design"
                             class="image-rounded home-services-img">
                     </a>
                     <h3 class="text-header">UI/UX Design</h3>
                 </article>
                 <article class="services-article">
-                    <a href="maintenace-and-support.html">
-                        <img src="./assets/services/image-2.jpg" alt="maintenance-and-support-image"
+                    <a href="maintenace-and-support.html" aria-label="Learn more about App Maintenance and Support">
+                        <img src="./assets/services/image-2.jpg" alt="App Maintenance and Support"
                             class="image-rounded home-services-img">
                     </a>
                     <h3 class="text-header">App Maintenance and Support</h3>
                 </article>
             </section>
         </section>
-        <section class="section-contact-us" id="section-contact-us">
-            <h2 class="text-header" align="center">Contact Us</h2>
+        <section class="section-contact-us" id="section-contact-us" aria-labelledby="contact-us-heading">
+            <h2 id="contact-us-heading" class="sr-only">Contact Us Section</h2>
             <section class="contact-us-main-container" style="margin-top: 24px;">
                 <section class="contact-us-information-container">
                     <article class="contact-us-article-container">
                         <h3 class="text-header">Let’s start building your next big idea.</h3>
                         <p align="justify">
                             We’d love to hear from you! Whether you’re ready to start a project, have questions, or want
-                            to
-                            discuss your vision, our team is here to help. Fill out the form below, and we’ll get back
-                            to
-                            you
-                            within one business day.
+                            to discuss your vision, our team is here to help. Fill out the form below, and we’ll get
+                            back to you within one business day.
                         </p>
                         <p>Alternatively, you can contact us directly via phone or email:</p>
                         <ul class="article-list">
@@ -249,76 +263,84 @@
                     </article>
                 </section>
                 <section class="contact-us-form">
-                    <form id="my-form">
-                        <input type="text" placeholder="Name" class="text-field" id="name" />
-                        <input type="email" placeholder="Email" class="text-field" id="email" />
-                        <input type="text" placeholder="Contact number" class="text-field" id="contact" />
-                        <select>
+                    <form id="my-form" aria-labelledby="contact-form-heading">
+                        <h2 id="contact-form-heading" class="sr-only">Contact Form</h2>
+                        <input type="text" placeholder="Name" class="text-field" id="name" aria-label="Enter your name"
+                            required />
+                        <input type="email" placeholder="Email" class="text-field" id="email"
+                            aria-label="Enter your email" required />
+                        <input type="text" placeholder="Contact number" class="text-field" id="contact"
+                            aria-label="Enter your contact number" required />
+                        <select aria-label="Select a budget range">
                             <option>Select a budget range</option>
-                            <option value="20k-50k">
-                                20k-50k
-                            </option>
-                            <option value="50k-120k">
-                                50k-120k
-                            </option>
-                            <option value="More than 120k">
-                                More than 120k
-                            </option>
-                            <option value="Not funded yet">
-                                Not funded yet
-                            </option>
+                            <option value="20k-50k">20k-50k</option>
+                            <option value="50k-120k">50k-120k</option>
+                            <option value="More than 120k">More than 120k</option>
+                            <option value="Not funded yet">Not funded yet</option>
                         </select>
-                        <textarea rows=7
-                            placeholder="Describe your project/idea in a brief (Help us come back better prepared)"></textarea>
+                        <textarea rows="7"
+                            placeholder="Describe your project/idea in brief (Help us come back better prepared)"
+                            aria-label="Describe your project or idea"></textarea>
                         <section class="home-button-container">
-                            <button type="submit" class="button submit-button">Submit</button>
+                            <button type="submit" class="button submit-button"
+                                aria-label="Submit the contact form">Submit</button>
                         </section>
                     </form>
                 </section>
             </section>
         </section>
     </main>
-    <footer>
+
+    <!-- end of main content -->
+
+    <!-- start of footer -->
+
+    <footer role="contentinfo">
         <section class="footer-section-container">
-            <section class="footer-get-in-touch-container">
-                <h3>Get in Touch</h3>
-                <section class="footer-information-container">
-                    <i class="fas fa-phone"></i>
+            <!-- Get in Touch Section -->
+            <section class="footer-get-in-touch-container" aria-labelledby="get-in-touch-heading">
+                <h3 id="get-in-touch-heading">Get in Touch</h3>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <p>61426650247</p>
                 </section>
-                <section class="footer-information-container ">
-                    <i class="fas fa-envelope"></i>
-                    <p>team@appinnovatesolutions.com </p>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <p>team@appinnovatesolutions.com</p>
                 </section>
             </section>
-            <section class="footer-information-section">
-                <h3>
-                    <a href="index.html" class="logo">
+
+            <!-- Footer Information Section -->
+            <section class="footer-information-section" aria-labelledby="footer-info-heading">
+                <h3 id="footer-info-heading">
+                    <a href="index.html" class="logo" aria-label="Go to homepage">
                         <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                         AppInnovate Solutions
                     </a>
                 </h3>
                 <section>
-                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.
-                    </p>
+                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.</p>
                 </section>
             </section>
+
+            <!-- Social Media and Privacy Policy Section -->
             <section style="gap: 7px;" class="footer-information-section">
                 <section style="display: flex; gap: 10px;">
                     <a href="https://www.instagram.com/appinnovativesolutions/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/appinnovate-solutions-5aa48a341/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on LinkedIn">
+                        <i class="fab fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                 </section>
-                <a href=" privacy-policy.html" class="privacy-policy">Privacy Policy</a>
+                <a href="privacy-policy.html" class="privacy-policy" aria-label="View our privacy policy">Privacy
+                    Policy</a>
             </section>
-
         </section>
     </footer>
+    <!-- end of footer -->
     <script src=" script.js"></script>
 </body>
 

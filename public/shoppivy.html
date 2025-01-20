@@ -13,81 +13,83 @@
 </head>
 
 <body>
-    <header>
-        <nav>
+    <!-- start of header -->
+    <header role="banner">
+        <nav role="navigation">
             <h3>
                 <a href="index.html" class="logo">
                     <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                     AppInnovate Solutions</a>
             </h3>
-            <section class="hamburger-menu-container">
-                <ul class="user-menu-list" style="margin-right: 16px;">
-                    <li class="has-submenu user-menu">
+            <section class="hamburger-menu-container" role="navigation">
+                <ul class="user-menu-list" style="margin-right: 16px;" role="menubar">
+                    <li class="has-submenu user-menu" role="menuitem">
                         <section>
                             <section class="nav-menu-item user-menu-link">
                                 <i class="fas fa-user"></i>
                             </section>
-                            <ul class="submenu">
-                                <li><a href="#" id="signout">Sign Out</a></li>
+                            <ul class="submenu" role="menu">
+                                <li role="menuitem"><a href="#" id="signout">Sign Out</a></li>
                             </ul>
                         </section>
                     </li>
                 </ul>
-                <section><i class="fas fa-bars hamburger-menu"></i></section>
+                <section role="button" aria-label="Open menu"><i class="fas fa-bars hamburger-menu"></i></section>
             </section>
 
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menubar">
+                <li role="menuitem">
                     <a href="index.html" class="nav-menu-item">
                         Home
                     </a>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Services
                         </label>
                         <ul class="submenu">
-                            <li><a href="custom-app-development.html">Custom App Development</a></li>
-                            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
-                            <li><a href="maintenace-and-support.html">App Maintenance and Support</a></li>
+                            <li role="menuitem"><a href="custom-app-development.html">Custom App Development</a></li>
+                            <li role="menuitem"><a href="ui-ux-design.html">UI/UX Design</a></li>
+                            <li role="menuitem"><a href="maintenace-and-support.html">App Maintenance and Support</a>
+                            </li>
                         </ul>
                     </section>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Portfolio
                         </label>
-                        <ul class="submenu">
-                            <li><a href="shoppivy.html">Shoppivy</a></li>
-                            <li><a href="track-it.html">Trackit</a></li>
+                        <ul class="submenu" role="menu">
+                            <li role="menuitem"><a href="shoppivy.html">Shoppivy</a></li>
+                            <li role="menuitem"><a href="track-it.html">Trackit</a></li>
                         </ul>
                     </section>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="about-us.html" class="nav-menu-item">
                         About Us
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a class="nav-menu-item" href="contact-us.html">
                         Contact Us
                     </a>
                 </li>
             </ul>
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menu">
+                <li role="menuitem">
                     <a href="login.html" class="nav-menu-item">
                         Login
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="registration.html" class="contact-us-button">
                         Register
                     </a>
                 </li>
-                <li class="has-submenu user-menu">
+                <li class="has-submenu user-menu" role="menuitem">
                     <section>
                         <section class="nav-menu-item user-menu-link">
                             <i class="fas fa-user"></i>
@@ -100,78 +102,91 @@
             </ul>
         </nav>
 
-        <aside class="mobile-navigation-drawer">
+        <aside class="mobile-navigation-drawer" role="complementary" aria-labelledby="mobile-menu-label">
+            <h2 id="mobile-menu-label" class="sr-only">Mobile Navigation Menu</h2>
+
             <section class="mobile-menu-container">
-                <ul class="mobile-menu-list">
-                    <li>
-                        <a href="index.html" class="mobile-menu-list-item mobile-selected">
+                <ul class="mobile-menu-list" role="menu">
+                    <li role="none">
+                        <a href="index.html" class="mobile-menu-list-item" role="menuitem">
                             Home
                         </a>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="services-label">
+                            <label id="services-label">
                                 Services
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="custom-app-development.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="services-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="custom-app-development.html" class="menu-list-sub-menu" role="menuitem">
                                     Custom App Development
                                 </a>
                             </li>
-                            <li>
-                                <a href="ui-ux-design.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="ui-ux-design.html" class="menu-list-sub-menu" role="menuitem">
                                     UI/UX Design
                                 </a>
                             </li>
-                            <li>
-                                <a href="maintenace-and-support.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="maintenace-and-support.html" class="menu-list-sub-menu" role="menuitem">
                                     App Maintenance and Support
                                 </a>
-
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="portfolio-label">
+                            <label id="portfolio-label">
                                 Portfolio
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="shoppivy.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="portfolio-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="shoppivy.html" class="menu-list-sub-menu mobile-selected" role="menuitem">
                                     Shoppivy
                                 </a>
                             </li>
-                            <li>
-                                <a href="track-it.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="track-it.html" class="menu-list-sub-menu" role="menuitem">
                                     Trackit
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="about-us.html" class="mobile-menu-list-item">
+
+                    <li role="none">
+                        <a href="about-us.html" class="mobile-menu-list-item" role="menuitem">
                             About Us
                         </a>
                     </li>
-                    <li>
-                        <a href="contact-us.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="contact-us.html" class="mobile-menu-list-item" role="menuitem">
                             Contact us
                         </a>
                     </li>
-                    <li>
-                        <a href="login.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="login.html" class="mobile-menu-list-item" role="menuitem">
                             Login
                         </a>
                     </li>
-                    <li>
-                        <a href="registration.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="registration.html" class="mobile-menu-list-item" role="menuitem">
                             Register
                         </a>
                     </li>
@@ -179,26 +194,32 @@
             </section>
         </aside>
     </header>
-    <main class="portfolio-container">
-        <section class="image-viewer" id="image-viewer">
-            <i class="fas fa-times close"></i>
-            <img id="large-image" src="" alt=" Large View">
+
+    <!-- end of header -->
+    <main class="portfolio-container" aria-labelledby="portfolio-heading">
+        <h1 id="portfolio-heading" class="sr-only">Portfolio</h1>
+
+        <section class="image-viewer" id="image-viewer" aria-hidden="true">
+            <button class="fas fa-times close" aria-label="Close image viewer"></button>
+            <img id="large-image" src="" alt="Large view of selected image" />
         </section>
+
         <section class="portfolio-container">
-            <h3 class="text-header" align="center" style="font-size: 32px; margin-bottom: 30px;">Project 1: Shoppivy -
-                eCommerce Simplified</h3>
+            <h3 class="text-header" align="center" style="font-size: 32px; margin-bottom: 30px;" id="project-title">
+                Project 1: Shoppivy - eCommerce Simplified
+            </h3>
+
             <article class="article-container">
-                <img src="./assets/portfolio/image-2.jpg" alt="Shoppivy-ECommerce"
-                    class="image-rounded thumbnail-image portfolio-image">
+                <img src="./assets/portfolio/image-2.jpg" alt="Shoppivy eCommerce app screenshot"
+                    class="image-rounded thumbnail-image portfolio-image" aria-labelledby="project-title" />
                 <section class="portfolio-section-article">
                     <p align="justify">
                         <b class="text-header">Shoppivy</b> is an all-in-one shopping app that enhances the online
                         shopping
-                        experience by offering
-                        personalized recommendations, real-time order tracking, and seamless payment integration. Users
-                        can
-                        quickly discover the best deals, track orders, and securely make purchases from their favorite
-                        stores.
+                        experience by offering personalized recommendations, real-time order tracking, and seamless
+                        payment integration. Users
+                        can quickly discover the best deals, track orders, and securely make purchases from their
+                        favorite stores.
                     </p>
                     <h3 class="text-header">Key Features</h3>
                     <ul class="article-list">
@@ -216,60 +237,66 @@
                     </ul>
                     <p align="justify">
                         Shoppivy delivers a personalized and efficient shopping experience, increasing eCommerce
-                        business
-                        satisfaction and conversion rates.
+                        business satisfaction and conversion rates.
                     </p>
                 </section>
             </article>
         </section>
-        <h3 class="text-header">Why choose us?</h3>
+
+        <h3 class="text-header" id="why-choose-us">Why choose us?</h3>
         <p align="justify">
             AppInnovate Solutions takes pride in delivering tailored mobile app solutions that meet your unique business
             needs. Whether eCommerce, health and fitness, or any other industry, our experts ensure every project is
             built with user-centric design, robust technology, and seamless functionality. Want to see what we can
-            create for your business? <a class="portfolio-contact-us" href="contact-us.html">Get in touch with us
-                today!</a>
+            create for your business?
+            <a class="portfolio-contact-us" href="contact-us.html" aria-label="Get in touch with us">Get in touch with
+                us today!</a>
         </p>
     </main>
-    <footer>
+
+    <footer role="contentinfo">
         <section class="footer-section-container">
-            <section class="footer-get-in-touch-container">
-                <h3>Get in Touch</h3>
-                <section class="footer-information-container">
-                    <i class="fas fa-phone"></i>
+            <!-- Get in Touch Section -->
+            <section class="footer-get-in-touch-container" aria-labelledby="get-in-touch-heading">
+                <h3 id="get-in-touch-heading">Get in Touch</h3>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <p>61426650247</p>
                 </section>
-                <section class="footer-information-container ">
-                    <i class="fas fa-envelope"></i>
-                    <p>team@appinnovatesolutions.com </p>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <p>team@appinnovatesolutions.com</p>
                 </section>
             </section>
-            <section class="footer-information-section">
-                <h3>
-                    <a href="index.html" class="logo">
+
+            <!-- Footer Information Section -->
+            <section class="footer-information-section" aria-labelledby="footer-info-heading">
+                <h3 id="footer-info-heading">
+                    <a href="index.html" class="logo" aria-label="Go to homepage">
                         <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                         AppInnovate Solutions
                     </a>
                 </h3>
                 <section>
-                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.
-                    </p>
+                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.</p>
                 </section>
             </section>
+
+            <!-- Social Media and Privacy Policy Section -->
             <section style="gap: 7px;" class="footer-information-section">
                 <section style="display: flex; gap: 10px;">
                     <a href="https://www.instagram.com/appinnovativesolutions/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/appinnovate-solutions-5aa48a341/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on LinkedIn">
+                        <i class="fab fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                 </section>
-                <a href=" privacy-policy.html" class="privacy-policy">Privacy Policy</a>
+                <a href="privacy-policy.html" class="privacy-policy" aria-label="View our privacy policy">Privacy
+                    Policy</a>
             </section>
-
         </section>
     </footer>
     <script src=" script.js"></script>

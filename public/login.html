@@ -11,37 +11,45 @@
 </head>
 
 <body>
-    <section class="login-container">
-        <nav class="login-logo-container">
+    <section class="login-container" role="main">
+        <nav class="login-logo-container" role="navigation">
             <h3>
-                <a href="index.html" class="logo login-logo">
+                <a href="index.html" class="logo login-logo" aria-label="AppInnovate Solutions Home">
                     <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
-                    AppInnovate Solutions</a>
+                    AppInnovate Solutions
+                </a>
             </h3>
         </nav>
-        <section class="login-form-container">
-            <form id="login-form">
+        <section class="login-form-container" role="region" aria-labelledby="form-title">
+            <form id="login-form" role="form">
                 <section>
-                    <p class="form-title">Please Enter your Account details</p>
+                    <p id="form-title" class="form-title">Please Enter your Account details</p>
                 </section>
                 <section>
-                    <p class="input-label">Email Address:</p>
-                    <input type="email" id="email" class="text-field" placeholder="Enter Email Address" required />
+                    <label for="email" class="input-label">Email Address:</label>
+                    <input type="email" id="email" class="text-field" placeholder="Enter Email Address" required
+                        aria-required="true" aria-describedby="email-desc" />
+
                 </section>
                 <section>
-                    <p class="input-label">Password:</p>
-                    <input type="password" id="password" class="text-field" placeholder="Enter Password" required />
+                    <label for="password" class="input-label">Password:</label>
+                    <input type="password" id="password" class="text-field" placeholder="Enter Password" required
+                        aria-required="true" aria-describedby="password-desc" />
                 </section>
-                <button type="submit" class="button submit-button"
-                    style="background-color: #18947b !important;">Login</button>
+                <button type="submit" class="button submit-button" style="background-color: #18947b !important;"
+                    aria-label="Login">Login</button>
                 <section>
-                    <p align="center" class="form-text">Don't have an Account? <a href="registration.html"
-                            class="login-link">Sign up for free</a></p>
+                    <p align="center" class="form-text">
+                        Don't have an Account?
+                        <a href="registration.html" class="login-link" aria-label="Sign up for a free account">
+                            Sign up for free
+                        </a>
+                    </p>
                 </section>
             </form>
         </section>
-        <section class="login-image-container">
-            <img src="./assets/login.svg" alt="AppInnovate Solutions logo" width="450">
+        <section class="login-image-container" role="complementary">
+            <img src="./assets/login.svg" alt="Illustration representing AppInnovate Solutions" width="450">
             <section style="text-align: center; color: white;">
                 <p class="login-image-text">
                     Empowering Your Vision, One App at a Time.

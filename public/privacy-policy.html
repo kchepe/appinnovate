@@ -13,81 +13,83 @@
 </head>
 
 <body>
-    <header>
-        <nav>
+    <!-- start of header -->
+    <header role="banner">
+        <nav role="navigation">
             <h3>
                 <a href="index.html" class="logo">
                     <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                     AppInnovate Solutions</a>
             </h3>
-            <section class="hamburger-menu-container">
-                <ul class="user-menu-list" style="margin-right: 16px;">
-                    <li class="has-submenu user-menu">
+            <section class="hamburger-menu-container" role="navigation">
+                <ul class="user-menu-list" style="margin-right: 16px;" role="menubar">
+                    <li class="has-submenu user-menu" role="menuitem">
                         <section>
                             <section class="nav-menu-item user-menu-link">
                                 <i class="fas fa-user"></i>
                             </section>
-                            <ul class="submenu">
-                                <li><a href="#" id="signout">Sign Out</a></li>
+                            <ul class="submenu" role="menu">
+                                <li role="menuitem"><a href="#" id="signout">Sign Out</a></li>
                             </ul>
                         </section>
                     </li>
                 </ul>
-                <section><i class="fas fa-bars hamburger-menu"></i></section>
+                <section role="button" aria-label="Open menu"><i class="fas fa-bars hamburger-menu"></i></section>
             </section>
 
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menubar">
+                <li role="menuitem">
                     <a href="index.html" class="nav-menu-item">
                         Home
                     </a>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Services
                         </label>
                         <ul class="submenu">
-                            <li><a href="custom-app-development.html">Custom App Development</a></li>
-                            <li><a href="ui-ux-design.html">UI/UX Design</a></li>
-                            <li><a href="maintenace-and-support.html">App Maintenance and Support</a></li>
+                            <li role="menuitem"><a href="custom-app-development.html">Custom App Development</a></li>
+                            <li role="menuitem"><a href="ui-ux-design.html">UI/UX Design</a></li>
+                            <li role="menuitem"><a href="maintenace-and-support.html">App Maintenance and Support</a>
+                            </li>
                         </ul>
                     </section>
                 </li>
-                <li class="has-submenu">
+                <li class="has-submenu" role="menuitem">
                     <section>
                         <label class="nav-menu-item">
                             Portfolio
                         </label>
-                        <ul class="submenu">
-                            <li><a href="shoppivy.html">Shoppivy</a></li>
-                            <li><a href="track-it.html">Trackit</a></li>
+                        <ul class="submenu" role="menu">
+                            <li role="menuitem"><a href="shoppivy.html">Shoppivy</a></li>
+                            <li role="menuitem"><a href="track-it.html">Trackit</a></li>
                         </ul>
                     </section>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="about-us.html" class="nav-menu-item">
                         About Us
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a class="nav-menu-item" href="contact-us.html">
                         Contact Us
                     </a>
                 </li>
             </ul>
-            <ul class="menu-list">
-                <li>
+            <ul class="menu-list" role="menu">
+                <li role="menuitem">
                     <a href="login.html" class="nav-menu-item">
                         Login
                     </a>
                 </li>
-                <li>
+                <li role="menuitem">
                     <a href="registration.html" class="contact-us-button">
                         Register
                     </a>
                 </li>
-                <li class="has-submenu user-menu">
+                <li class="has-submenu user-menu" role="menuitem">
                     <section>
                         <section class="nav-menu-item user-menu-link">
                             <i class="fas fa-user"></i>
@@ -100,78 +102,91 @@
             </ul>
         </nav>
 
-        <aside class="mobile-navigation-drawer">
+        <aside class="mobile-navigation-drawer" role="complementary" aria-labelledby="mobile-menu-label">
+            <h2 id="mobile-menu-label" class="sr-only">Mobile Navigation Menu</h2>
+
             <section class="mobile-menu-container">
-                <ul class="mobile-menu-list">
-                    <li>
-                        <a href="index.html" class="mobile-menu-list-item mobile-selected">
+                <ul class="mobile-menu-list" role="menu">
+                    <li role="none">
+                        <a href="index.html" class="mobile-menu-list-item" role="menuitem">
                             Home
                         </a>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="services-label">
+                            <label id="services-label">
                                 Services
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="custom-app-development.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="services-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="custom-app-development.html" class="menu-list-sub-menu" role="menuitem">
                                     Custom App Development
                                 </a>
                             </li>
-                            <li>
-                                <a href="ui-ux-design.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="ui-ux-design.html" class="menu-list-sub-menu" role="menuitem">
                                     UI/UX Design
                                 </a>
                             </li>
-                            <li>
-                                <a href="maintenace-and-support.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="maintenace-and-support.html" class="menu-list-sub-menu" role="menuitem">
                                     App Maintenance and Support
                                 </a>
-
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <section class="menu-list-with-sub-menu-container">
-                            <label>
+
+                    <li role="none">
+                        <section class="menu-list-with-sub-menu-container" role="group"
+                            aria-labelledby="portfolio-label">
+                            <label id="portfolio-label">
                                 Portfolio
                             </label>
-                            <i class="fas fa-caret-down text-header"></i>
+                            <button aria-expanded="false" aria-controls="services-submenu" id="services-toggle"
+                                style="background-color: transparent; border: none;">
+                                <i class="fas fa-caret-down text-header"></i>
+                            </button>
                         </section>
-
-                        <ul class="mobile-menu-list mobile-submenu">
-                            <li>
-                                <a href="shoppivy.html" class="menu-list-sub-menu">
+                        <ul class="mobile-menu-list mobile-submenu" id="portfolio-submenu" role="menu"
+                            aria-hidden="true">
+                            <li role="none">
+                                <a href="shoppivy.html" class="menu-list-sub-menu" role="menuitem">
                                     Shoppivy
                                 </a>
                             </li>
-                            <li>
-                                <a href="track-it.html" class="menu-list-sub-menu">
+                            <li role="none">
+                                <a href="track-it.html" class="menu-list-sub-menu" role="menuitem">
                                     Trackit
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="about-us.html" class="mobile-menu-list-item">
+
+                    <li role="none">
+                        <a href="about-us.html" class="mobile-menu-list-item" role="menuitem">
                             About Us
                         </a>
                     </li>
-                    <li>
-                        <a href="contact-us.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="contact-us.html" class="mobile-menu-list-item" role="menuitem">
                             Contact us
                         </a>
                     </li>
-                    <li>
-                        <a href="login.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="login.html" class="mobile-menu-list-item" role="menuitem">
                             Login
                         </a>
                     </li>
-                    <li>
-                        <a href="registration.html" class="mobile-menu-list-item">
+                    <li role="none">
+                        <a href="registration.html" class="mobile-menu-list-item" role="menuitem">
                             Register
                         </a>
                     </li>
@@ -179,30 +194,40 @@
             </section>
         </aside>
     </header>
-    <main class="privacy-policy-container">
+
+    <!-- end of header -->
+    <main class="privacy-policy-container" aria-labelledby="privacy-policy-heading">
+        <h1 id="privacy-policy-heading" class="sr-only">Privacy Policy</h1>
+
         <article style="margin-bottom: 10px;">
             <h3 class="text-header" align="center" style="font-size: 32px;">Privacy Policy</h3>
             <p align="center"><i>Your project and personal information are always safe with us.</i></p>
         </article>
-        <p><b class="text-header">AppInnovate Solutions</b> is committed to providing you with the best possible
-            experience in custom app
-            development, UI/UX design, and app maintenance and support. <b class="text-header">AppInnovate Solutions</b>
-            abides by the Privacy Act
-            1988 (Cth), which outlines principles regarding the privacy of our customers.</p>
-        <h3>Collection of your personal information</h3>
+
+        <p>
+            <b class="text-header">AppInnovate Solutions</b> is committed to providing you with the best possible
+            experience in custom app development, UI/UX design, and app maintenance and support. <b
+                class="text-header">AppInnovate Solutions</b>
+            abides by the Privacy Act 1988 (Cth), which outlines principles regarding the privacy of our customers.
+        </p>
+
+        <h3 id="collection-of-info">Collection of your personal information</h3>
         <p>
             Many aspects of our website can be accessed without providing personal information. However, to request a
             quote or contact us, you may be required to submit personally identifiable information.
         </p>
-        <h3>Sharing of Your Personal Information</h3>
+
+        <h3 id="sharing-of-info">Sharing of Your Personal Information</h3>
         <p>
             Your personal information will not be shared with other organizations unless collaboration is necessary to
             provide you with services. In such cases, we will seek your explicit permission before sharing your
-            information. <b class="text-header">AppInnovate Solutions</b> takes reasonable steps to ensure that any
-            collaborating organizations
+            information.
+            <b class="text-header">AppInnovate Solutions</b> takes reasonable steps to ensure that any collaborating
+            organizations
             adhere to confidentiality and privacy obligations to protect your personal information.
         </p>
-        <h3>Use of Your Personal Information</h3>
+
+        <h3 id="use-of-info">Use of Your Personal Information</h3>
         <p>
             For each visitor to our site, we collect non-personally identifiable information, including but not limited
             to:
@@ -222,19 +247,22 @@
             If our information practices change, data collected after the policy change will adhere to our updated
             practices.
         </p>
-        <h3>Changes to This Privacy Policy</h3>
+
+        <h3 id="changes-to-policy">Changes to This Privacy Policy</h3>
         <p>
             <b class="text-header">AppInnovate Solutions</b> reserves the right to amend this Privacy Policy at any
             time. If you object to the
             Privacy Policy, you should refrain from accessing or using our site.
         </p>
-        <h3>Accessing Your Personal Information</h3>
+
+        <h3 id="accessing-info">Accessing Your Personal Information</h3>
         <p>
             You have the right to access your personal information, subject to exceptions allowed by law. If you would
             like to access your information, please contact us. For security purposes, we may require a written request,
             and a fee may apply for searching and providing access to your information on a per-request basis.
         </p>
-        <h3>Cookies</h3>
+
+        <h3 id="cookies">Cookies</h3>
         <p>
             Cookies are small text files placed on your computer’s hard drive through your web browser when you visit a
             website. These files are used to make websites work more efficiently and to provide insights to website
@@ -243,56 +271,66 @@
         <p>
             You can disable cookies manually at any time—refer to your browser's ‘Help’ section for guidance. Disabling
             cookies will not affect your ability to view our site. However, to take full advantage of our website
-            features, we recommend enabling cookies.
+            features,
+            we recommend enabling cookies.
         </p>
-        <h3>Contacting Us</h3>
+
+        <h3 id="contacting-us">Contacting Us</h3>
         <p>
             If you have questions about this Privacy Policy or your privacy while visiting our website, please don’t
             hesitate to contact us:
         </p>
-        <section>
-            <a class="contact-us-button" href="contact-us.html">
+
+        <section aria-labelledby="contact-us-heading">
+            <h4 id="contact-us-heading" class="sr-only">Contact Us Section</h4>
+            <a class="contact-us-button" href="contact-us.html" aria-label="Contact us for privacy inquiries">
                 Contact Us
             </a>
         </section>
     </main>
-    <footer>
+
+    <footer role="contentinfo">
         <section class="footer-section-container">
-            <section class="footer-get-in-touch-container">
-                <h3>Get in Touch</h3>
-                <section class="footer-information-container">
-                    <i class="fas fa-phone"></i>
+            <!-- Get in Touch Section -->
+            <section class="footer-get-in-touch-container" aria-labelledby="get-in-touch-heading">
+                <h3 id="get-in-touch-heading">Get in Touch</h3>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <p>61426650247</p>
                 </section>
-                <section class="footer-information-container ">
-                    <i class="fas fa-envelope"></i>
-                    <p>team@appinnovatesolutions.com </p>
+                <section class="footer-information-container" role="listitem">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <p>team@appinnovatesolutions.com</p>
                 </section>
             </section>
-            <section class="footer-information-section">
-                <h3>
-                    <a href="index.html" class="logo">
+
+            <!-- Footer Information Section -->
+            <section class="footer-information-section" aria-labelledby="footer-info-heading">
+                <h3 id="footer-info-heading">
+                    <a href="index.html" class="logo" aria-label="Go to homepage">
                         <img src="./assets/logo/logo.png" alt="AppInnovate Solutions logo" width="35px">
                         AppInnovate Solutions
                     </a>
                 </h3>
                 <section>
-                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.
-                    </p>
+                    <p>Copyright @ 2024 AppInnovate Solutions. All Rights Reserved.</p>
                 </section>
             </section>
+
+            <!-- Social Media and Privacy Policy Section -->
             <section style="gap: 7px;" class="footer-information-section">
                 <section style="display: flex; gap: 10px;">
                     <a href="https://www.instagram.com/appinnovativesolutions/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-instagram" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on Instagram">
+                        <i class="fab fa-instagram" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/appinnovate-solutions-5aa48a341/" target="_blank"
-                        style="text-decoration: none; color: white;">
-                        <i class="fab fa-linkedin" style="font-size: 20px;"></i>
+                        style="text-decoration: none; color: white;" aria-label="Follow us on LinkedIn">
+                        <i class="fab fa-linkedin" style="font-size: 20px;" aria-hidden="true"></i>
                     </a>
                 </section>
-                <a href=" privacy-policy.html" class="privacy-policy">Privacy Policy</a>
+                <a href="privacy-policy.html" class="privacy-policy" aria-label="View our privacy policy">Privacy
+                    Policy</a>
             </section>
         </section>
     </footer>
