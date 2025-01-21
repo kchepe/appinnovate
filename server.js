@@ -18,21 +18,21 @@ const SECRET_KEY = 'your_secret_key';
 
 // Database connection
 //production
-// const db = mysql.createConnection({
-//     host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
-//     user: 'root',
-//     password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
-//     database: 'railway',
-//     port: 17679 // Use the correct port from the connection string
-// });
+const db = mysql.createConnection({
+    host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
+    user: 'root',
+    password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
+    database: 'railway',
+    port: 17679 // Use the correct port from the connection string
+});
 
 // development
-const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'admin', // Change according to your MySQL setup
-    database: 'app'
-});
+// const db = mysql.createConnection({
+//     host: 'localhost',
+//     user: 'root',
+//     password: 'admin', // Change according to your MySQL setup
+//     database: 'app'
+// });
 
 db.connect(err => {
     if (err) {
