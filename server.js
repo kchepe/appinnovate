@@ -16,15 +16,41 @@ app.use(cookieParser()); // Middleware for handling cookies
 
 const SECRET_KEY = 'your_secret_key';
 
-// Database connection
-//production
-const db = mysql.createConnection({
-    host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
+const db = mysql.createPool({
+    host: 'monorail.proxy.rlwy.net',
     user: 'root',
     password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
     database: 'railway',
-    port: 17679 // Use the correct port from the connection string
+    port: 17679,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
+
+setInterval(() => {
+    db.query('SELECT 1', (err) => {
+        if (err) console.error('Error keeping connection alive:', err);
+    });
+}, 30000);
+
+db.on('error', (err) => {
+    console.error('Database connection error:', err);
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        console.log('Reconnecting to the database...');
+        db = mysql.createPool(db.config);
+    }
+});
+
+
+// Database connection
+//production
+// const db = mysql.createConnection({
+//     host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
+//     user: 'root',
+//     password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
+//     database: 'railway',
+//     port: 17679 // Use the correct port from the connection string
+// });
 
 // development
 // const db = mysql.createConnection({
@@ -34,12 +60,12 @@ const db = mysql.createConnection({
 //     database: 'app'
 // });
 
-db.connect(err => {
-    if (err) {
-     throw err
-    };
-    console.log('Connected to MySQL database');
-});
+// db.connect(err => {
+//     if (err) {
+//      throw err
+//     };
+//     console.log('Connected to MySQL database');
+// });
 
 // Serve the HTML file
 app.get('/', (req, res) => {
