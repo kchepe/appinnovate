@@ -599,3 +599,13 @@ textarea {
     display: flex;
     align-items: center;
 }
+
+.home-video-section {
+    display: flex;
+    flex-direction: column;
+    gap: 32px
+}
+
+.home-video {
+    width: 100%;
+}
