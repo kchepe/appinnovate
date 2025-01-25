@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar - Always visible on desktop, drawer on mobile -->
+    <nav class="sidebar" aria-label="Main Navigation">
+        <button class="close-btn" aria-label="Close Menu">&times;</button>
+        <ul>
+            <li><a href="#" aria-current="page">Dashboard</a></li>
+            <li><a href="#" id="signout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <section class="main-content">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+            <button class="menu-btn" aria-label="Open Menu">&#9776;</button>
+            <h3 style="color: #397367">AppInnovate Solutions</h3>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="content">
+            <h2 style="color: #397367; margin-bottom: 16px;">Dashboard Overview</h2>
+            <section class="cards">
+                <article class="card" role="region" aria-labelledby="users-stat">
+                    <h2 id="users-stat">Total Users</h2>
+                    <p>1,245 Active Users</p>
+                </article>
+                <article class="card" role="region" aria-labelledby="sales-stat">
+                    <h2 id="sales-stat">Total Sales</h2>
+                    <p>$23,456 This Month</p>
+                </article>
+                <article class="card" role="region" aria-labelledby="feedback-stat">
+                    <h2 id="feedback-stat">Customer Feedback</h2>
+                    <p>95% Positive Reviews</p>
+                </article>
+            </section>
+        </main>
+
+    </section>
+
+    <script src="script.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Check if the user is logged in
+            fetch('/me')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("User not authenticated");
+                    }
+                    return response.json();
+                })
+                .then(user => {
+                    if (!user) {
+                        window.location.href = 'login.html'; // Redirect if no user is logged in
+                    }
+                })
+                .catch(error => {
+                    console.error("Authentication error:", error);
+                    window.location.href = 'login.html'; // Redirect to login on error
+                });
+        });
+    </script>
+</body>
+
+</html>

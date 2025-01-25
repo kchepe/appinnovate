@@ -100,4 +100,20 @@ $(document).ready(function () {
             .slideUp(300); // Close other menus
     });
 
+
+    $(".menu-btn").click(function () {
+        $(".sidebar").addClass("open");
+    });
+
+    $(".close-btn").click(function () {
+        $(".sidebar").removeClass("open");
+    });
+
+    // Close sidebar if user clicks outside
+    $(document).click(function (event) {
+        if (!$(event.target).closest(".sidebar, .menu-btn").length) {
+            $(".sidebar").removeClass("open");
+        }
+    });
+
 });
