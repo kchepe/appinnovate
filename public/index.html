@@ -285,28 +285,30 @@
                         <p>Alternatively, you can contact us directly via phone or email:</p>
                         <ul class="article-list">
                             <li>Phone: +61426650247</li>
-                            <li>Email: team@appinnovatesolutions.com</li>
+                            <li>Email: sappinnovate@gmail.com</li>
                         </ul>
                     </article>
                 </section>
                 <section class="contact-us-form">
-                    <form id="my-form" aria-labelledby="contact-form-heading">
-                        <input type="text" placeholder="Name" class="text-field" id="name" aria-label="Enter your name"
-                            required />
+                    <form id="contactUsForm" role="form">
+                        <input type="text" placeholder="Name" class="text-field" id="name" aria-labelledby="name-label"
+                            required name="fullname" />
+
                         <input type="email" placeholder="Email" class="text-field" id="email"
-                            aria-label="Enter your email" required />
+                            aria-labelledby="email-label" required name="email" />
                         <input type="text" placeholder="Contact number" class="text-field" id="contact"
-                            aria-label="Enter your contact number" required />
-                        <select aria-label="Select a budget range">
+                            fdprocessedid="g1mz78" name="contact_number">
+                        <select id="budget" aria-labelledby="budget-label" name="budget">
                             <option>Select a budget range</option>
                             <option value="20k-50k">20k-50k</option>
                             <option value="50k-120k">50k-120k</option>
                             <option value="More than 120k">More than 120k</option>
                             <option value="Not funded yet">Not funded yet</option>
                         </select>
-                        <textarea rows="7"
-                            placeholder="Describe your project/idea in brief (Help us come back better prepared)"
-                            aria-label="Describe your project or idea"></textarea>
+                        <textarea id="project-description" rows="7"
+                            placeholder="Describe your project/idea in a brief (Help us come back better prepared)"
+                            aria-labelledby="project-description-label" required name="description"></textarea>
+
                         <section class="home-button-container">
                             <button type="submit" class="button submit-button"
                                 aria-label="Submit the contact form">Submit</button>
@@ -332,7 +334,7 @@
                 </section>
                 <section class="footer-information-container" role="listitem">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <p>team@appinnovatesolutions.com</p>
+                    <p>sappinnovate@gmail.com</p>
                 </section>
             </section>
 
@@ -368,6 +370,34 @@
     </footer>
     <!-- end of footer -->
     <script src=" script.js"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('contactUsForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/contact-us', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const message = await response.text();
+
+                if (response.ok) {
+                    alert('Email Receipt Sent!');
+                    this.reset(); // Clear the form after successful submission
+                } else {
+                    alert('Error: ' + message);
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 
 </html>

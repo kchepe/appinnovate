@@ -220,20 +220,20 @@
                             </p>
                             <ul class="article-list" aria-label="Contact information">
                                 <li>Phone: +61426650247</li>
-                                <li>Email: team@appinnovatesolutions.com</li>
+                                <li>Email: sappinnovate@gmail.com</li>
                             </ul>
                         </article>
                     </section>
                     <section class="contact-us-form" aria-labelledby="contact-form-heading">
-                        <form id="my-form" role="form">
+                        <form id="contactUsForm" role="form">
                             <input type="text" placeholder="Name" class="text-field" id="name"
-                                aria-labelledby="name-label" required />
+                                aria-labelledby="name-label" required name="fullname" />
 
                             <input type="email" placeholder="Email" class="text-field" id="email"
-                                aria-labelledby="email-label" required />
+                                aria-labelledby="email-label" required name="email" />
                             <input type="text" placeholder="Contact number" class="text-field" id="contact"
-                                fdprocessedid="g1mz78">
-                            <select id="budget" aria-labelledby="budget-label">
+                                fdprocessedid="g1mz78" name="contact_number">
+                            <select id="budget" aria-labelledby="budget-label" name="budget">
                                 <option>Select a budget range</option>
                                 <option value="20k-50k">20k-50k</option>
                                 <option value="50k-120k">50k-120k</option>
@@ -242,7 +242,7 @@
                             </select>
                             <textarea id="project-description" rows="7"
                                 placeholder="Describe your project/idea in a brief (Help us come back better prepared)"
-                                aria-labelledby="project-description-label" required></textarea>
+                                aria-labelledby="project-description-label" required name="description"></textarea>
 
                             <section class="home-button-container">
                                 <button type="submit" class="button submit-button"
@@ -265,7 +265,7 @@
                 </section>
                 <section class="footer-information-container" role="listitem">
                     <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <p>team@appinnovatesolutions.com</p>
+                    <p>sappinnovate@gmail.com</p>
                 </section>
             </section>
 
@@ -300,6 +300,34 @@
         </section>
     </footer>
     <script src=" script.js"></script>
+    <script>
+        // Handle form submission
+        document.getElementById('contactUsForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/contact-us', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                const message = await response.text();
+
+                if (response.ok) {
+                    alert('Email Receipt Sent!');
+                    this.reset(); // Clear the form after successful submission
+                } else {
+                    alert('Error: ' + message);
+                }
+            } catch (error) {
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 
 </html>

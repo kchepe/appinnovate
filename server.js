@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const bcrypt = require('bcrypt'); // For password hashing
+const nodemailer = require('nodemailer');
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(express.static('public')); // Serve static files from 'client' instead o
 app.use(cookieParser()); // Middleware for handling cookies
 
 const SECRET_KEY = 'your_secret_key';
+// Database connection
+//production
 
 const db = mysql.createPool({
     host: 'monorail.proxy.rlwy.net',
@@ -41,18 +44,17 @@ db.on('error', (err) => {
     }
 });
 
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // Use your email service (Gmail, Outlook, etc.)
+    auth: {
+        user: 'sappinnovate@gmail.com', // Replace with your email
+        pass: 'tmvb eesk sbac nmlk'   // Replace with your app password
+    }
+});
 
-// Database connection
-//production
-// const db = mysql.createConnection({
-//     host: 'monorail.proxy.rlwy.net', // Use the proxy hostname
-//     user: 'root',
-//     password: 'qRJoxjVJmCXuUVpRvvyVXsIzwPmqtFWM',
-//     database: 'railway',
-//     port: 17679 // Use the correct port from the connection string
-// });
 
-// development
+
+//development
 // const db = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
@@ -117,6 +119,52 @@ app.get('/me', (req, res) => {
 app.post('/logout', (req, res) => {
     res.clearCookie('authToken'); // Remove the token
     res.send('Logged out successfully');
+});
+
+
+// contact us ednpoint
+app.post('/contact-us', (req, res) => {
+    const { fullname, email, budget, description, contact_number } = req.body;
+
+    if (!fullname || !email || !budget || !description || !contact_number) {
+        return res.status(400).send('All fields are required');
+    }
+
+    const sql = 'INSERT INTO contacts (fullname, email, budget, description, contact_number) VALUES (?, ?, ?, ?, ?)';
+    db.query(sql, [fullname, email, budget, description, contact_number], (err, result) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error saving contact details');
+        }
+
+        // Send confirmation email
+        const mailOptions = {
+            from: '"AppInnovate Solutions" <your_email@gmail.com>',
+            to: email, // Send email to the user
+            subject: 'Contact Request Received',
+            html: `
+                <p>Hello <strong>${fullname}</strong>,</p>
+                <p>Thank you for reaching out! We have received your inquiry and will get back to you soon.</p>
+                <p><strong>Details:</strong></p>
+                <ul>
+                    <li><strong>Email:</strong> ${email}</li>
+                    <li><strong>Contact Number:</strong> ${contact_number}</li>
+                    <li><strong>Budget:</strong> ${budget}</li>
+                    <li><strong>Description:</strong> ${description}</li>
+                </ul>
+                <p>Best regards,<br>AppInnovate Solutions</p>
+            `
+        };
+
+        transporter.sendMail(mailOptions, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+                return res.status(500).send('Error sending confirmation email');
+            }
+            console.log('Email sent:', info.response);
+            res.status(200).send('Contact details submitted successfully!');
+        });
+    });
 });
 
 // Login endpoint
