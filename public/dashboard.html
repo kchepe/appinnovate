@@ -7,6 +7,7 @@
     <title>Responsive Dashboard</title>
     <link rel="stylesheet" href="dashboard.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" href="assets/logo/logo.png" type="image/png">
 </head>
 
 <body>
@@ -15,7 +16,8 @@
     <nav class="sidebar" aria-label="Main Navigation">
         <button class="close-btn" aria-label="Close Menu">&times;</button>
         <ul>
-            <li><a href="#" aria-current="page">Dashboard</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#" aria-current="page">Contact History</a></li>
             <li><a href="#" id="signout">Logout</a></li>
         </ul>
     </nav>
@@ -31,21 +33,23 @@
 
         <!-- Dashboard Content -->
         <main class="content">
-            <h2 style="color: #397367; margin-bottom: 16px;">Dashboard Overview</h2>
-            <section class="cards">
-                <article class="card" role="region" aria-labelledby="users-stat">
-                    <h2 id="users-stat">Total Users</h2>
-                    <p>1,245 Active Users</p>
-                </article>
-                <article class="card" role="region" aria-labelledby="sales-stat">
-                    <h2 id="sales-stat">Total Sales</h2>
-                    <p>$23,456 This Month</p>
-                </article>
-                <article class="card" role="region" aria-labelledby="feedback-stat">
-                    <h2 id="feedback-stat">Customer Feedback</h2>
-                    <p>95% Positive Reviews</p>
-                </article>
-            </section>
+            <h2 style="color: #397367; margin-bottom: 16px;">Contact History</h2>
+            <div class="table-wrapper">
+                <table id="contacts-table">
+                    <thead style="background-color: #397367; color: white;">
+                        <tr align="left">
+                            <th style="padding: 12px 20px;">Full Name</th>
+                            <th style="padding: 12px 20px;">Email</th>
+                            <th style="padding: 12px 20px;">Description</th>
+                            <th style="padding: 12px 20px;">Budget</th>
+                            <th style="padding: 12px 20px;">Contact Number</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contacts-list">
+                        <!-- Contacts will be dynamically loaded here -->
+                    </tbody>
+                </table>
+            </div>
         </main>
 
     </section>
@@ -64,14 +68,44 @@
                 .then(user => {
                     if (!user) {
                         window.location.href = 'login.html'; // Redirect if no user is logged in
+                    } else {
+                        fetchContacts(); // Fetch contacts after authentication
                     }
                 })
                 .catch(error => {
                     console.error("Authentication error:", error);
                     window.location.href = 'login.html'; // Redirect to login on error
                 });
+
+            function fetchContacts() {
+                fetch('/contacts')
+                    .then(response => response.json())
+                    .then(contacts => {
+                        const contactsList = $('#contacts-list');
+                        contactsList.empty(); // Clear any existing contacts
+
+                        if (contacts.length === 0) {
+                            contactsList.append('<tr><td colspan="5">No contacts found.</td></tr>');
+                        } else {
+                            contacts.forEach(contact => {
+                                contactsList.append(`
+                                    <tr>
+                                        <td style="padding: 12px 20px;">${contact.fullname}</td>
+                                        <td style="padding: 12px 20px;">${contact.email}</td>
+                                        <td style="padding: 12px 20px;">${contact.description}</td>
+                                        <td style="padding: 12px 20px;">${contact.budget}</td>
+                                        <td style="padding: 12px 20px;">${contact.contact_number}</td>
+                                    </tr>
+                                `);
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Error fetching contacts:', error));
+            }
         });
     </script>
+
+
 </body>
 
 </html>

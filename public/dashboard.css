@@ -123,20 +123,35 @@ body {
     margin-left: 4px;
 }
 
-/* Cards */
-.cards {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
+
+
+#contacts-table tbody tr:nth-child(even) {
+    background-color: #f4f4f4; /* Light gray for even rows */
 }
 
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
+#contacts-table tbody tr:nth-child(odd) {
+    background-color: #ffffff; /* White for odd rows */
+}
+
+/* Optional: Add a hover effect for better UI */
+#contacts-table tbody tr:hover {
+    background-color: #e0e0e0; /* Gray on hover */
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* Adjust table width to prevent layout breaking on small screens */
+#contacts-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+
+/* Optional: Make sure the table cells are padded correctly */
+#contacts-table td, #contacts-table th {
+    padding: 12px 20px;
 }
 
 /* RESPONSIVE DESIGN */
@@ -168,4 +183,5 @@ body {
     .topbar, .content {
         margin-left: 0;
     }
+
 }

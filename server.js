@@ -16,9 +16,10 @@ app.use(express.static('public')); // Serve static files from 'client' instead o
 app.use(cookieParser()); // Middleware for handling cookies
 
 const SECRET_KEY = 'your_secret_key';
+
+
 // Database connection
 //production
-
 const db = mysql.createPool({
     host: 'monorail.proxy.rlwy.net',
     user: 'root',
@@ -44,17 +45,8 @@ db.on('error', (err) => {
     }
 });
 
-const transporter = nodemailer.createTransport({
-    service: 'gmail', // Use your email service (Gmail, Outlook, etc.)
-    auth: {
-        user: 'sappinnovate@gmail.com', // Replace with your email
-        pass: 'tmvb eesk sbac nmlk'   // Replace with your app password
-    }
-});
 
-
-
-//development
+// development
 // const db = mysql.createConnection({
 //     host: 'localhost',
 //     user: 'root',
@@ -68,6 +60,17 @@ const transporter = nodemailer.createTransport({
 //     };
 //     console.log('Connected to MySQL database');
 // });
+
+
+
+const transporter = nodemailer.createTransport({
+    service: 'gmail', // Use your email service (Gmail, Outlook, etc.)
+    auth: {
+        user: 'sappinnovate@gmail.com', // Replace with your email
+        pass: 'tmvb eesk sbac nmlk'   // Replace with your app password
+    }
+});
+
 
 // Serve the HTML file
 app.get('/', (req, res) => {
@@ -89,8 +92,8 @@ app.post('/register', (req, res) => {
             return res.status(500).send('Error hashing password');
         }
 
-        const sql = 'INSERT INTO users (firstname, lastname, email, password) VALUES (?, ?, ?, ?)';
-        db.query(sql, [firstname, lastname, email, hashedPassword], (err, result) => {
+        const sql = 'INSERT INTO users (firstname, lastname, email, password, isAdmin) VALUES (?, ?, ?, ?, ?)';
+        db.query(sql, [firstname, lastname, email, hashedPassword, false], (err, result) => {
             if (err) {
                 console.error(err);
                 return res.status(500).send('Error saving user');
@@ -112,7 +115,7 @@ app.get('/me', (req, res) => {
         if (err) {
             return res.status(403).send('Invalid token');
         }
-        res.json({ userId: decoded.userId, email: decoded.email, firstname: decoded.firstname, lastname: decoded.lastname });
+        res.json({ userId: decoded.userId, email: decoded.email, firstname: decoded.firstname, lastname: decoded.lastname, isAdmin: decoded.isAdmin});
     });
 });
 // Logout endpoint
@@ -167,6 +170,36 @@ app.post('/contact-us', (req, res) => {
     });
 });
 
+app.get('/contacts', (req, res) => {
+    const token = req.cookies.authToken; // Get token from cookies
+
+    if (!token) {
+        return res.status(401).send('Unauthorized');
+    }
+
+    jwt.verify(token, SECRET_KEY, (err, decoded) => {
+        const { email, isAdmin } = decoded;
+        if (err) {
+            return res.status(403).send('Invalid token');
+        }
+
+        // Adjust SQL query based on whether the user is an admin or not
+        let sql = 'SELECT * FROM contacts ORDER BY createdAt DESC'; // Default query to fetch all contacts
+        if (!isAdmin) {
+            sql = 'SELECT * FROM contacts WHERE email = ? ORDER BY createdAt DESC'; // Fetch contacts for the user's email if not admin
+        }
+
+        db.query(sql, isAdmin ? [] : [email], (err, results) => {
+            if (err) {
+                console.error('Error fetching contacts:', err);
+                return res.status(500).send('Error fetching contacts');
+            }
+
+            res.status(200).json(results);
+        });
+    });
+});
+
 // Login endpoint
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
@@ -194,7 +227,7 @@ app.post('/login', (req, res) => {
 
             if (isMatch) {
                 // Create JWT Token
-                const token = jwt.sign({ userId: result[0].id, email, firstname: result[0].firstname, lastname: result[0].lastname }, SECRET_KEY, { expiresIn: '1h' });
+                const token = jwt.sign({ userId: result[0].id, email, firstname: result[0].firstname, lastname: result[0].lastname, isAdmin: result[0].isAdmin}, SECRET_KEY, { expiresIn: '1h' });
 
                 // Set token in HTTP-only cookie
                 res.cookie('authToken', token, {
@@ -202,7 +235,7 @@ app.post('/login', (req, res) => {
                     secure: process.env.NODE_ENV === 'production', // Use only in HTTPS for production
                     sameSite: 'Strict',
                 });
-
+                
                 res.status(200).send('Login successful!');
             } else {
                 res.status(400).send('Invalid credentials');
