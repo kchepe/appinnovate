@@ -43,6 +43,7 @@
                             <th style="padding: 12px 20px;">Description</th>
                             <th style="padding: 12px 20px;">Budget</th>
                             <th style="padding: 12px 20px;">Contact Number</th>
+                            <th style="padding: 12px 20px;">Date</th>
                         </tr>
                     </thead>
                     <tbody id="contacts-list">
@@ -88,6 +89,7 @@
                             contactsList.append('<tr><td colspan="5">No contacts found.</td></tr>');
                         } else {
                             contacts.forEach(contact => {
+                                const createdAtDate = new Date(contact.createdAt).toLocaleDateString('en-US');
                                 contactsList.append(`
                                     <tr>
                                         <td style="padding: 12px 20px;">${contact.fullname}</td>
@@ -95,6 +97,7 @@
                                         <td style="padding: 12px 20px;">${contact.description}</td>
                                         <td style="padding: 12px 20px;">${contact.budget}</td>
                                         <td style="padding: 12px 20px;">${contact.contact_number}</td>
+                                        <td style="padding: 12px 20px;">${createdAtDate}</td>
                                     </tr>
                                 `);
                             });
